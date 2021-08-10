@@ -1,8 +1,8 @@
 
 public class Gugudan {
 	public static void main(String[] args) {
-		//2´Ü
-			System.out.println("//////2´Ü");
+		//2ë‹¨
+			System.out.println("//////2ë‹¨//////");
 			System.out.println("2 * 1 = "+2*1);
 			System.out.println("2 * 2 = "+2*2);
 			System.out.println("2 * 3 = "+2*3);
@@ -12,8 +12,8 @@ public class Gugudan {
 			System.out.println("2 * 7 = "+2*7);
 			System.out.println("2 * 8 = "+2*8); 
 			System.out.println("2 * 9 = "+2*9);	
-		//3´Ü
-			System.out.println("//////3´Ü//////");
+		//3ë‹¨
+			System.out.println("//////3ë‹¨//////");
 			System.out.println("3 * 1 = "+3*1);
 			System.out.println("3 * 2 = "+3*2);
 			System.out.println("3 * 3 = "+3*3);
@@ -23,8 +23,8 @@ public class Gugudan {
 			System.out.println("3 * 7 = "+3*7);
 			System.out.println("3 * 8 = "+3*8); 
 			System.out.println("3 * 9 = "+3*9);	
-		//4´Ü
-			System.out.println("//////4´Ü//////");
+		//4ë‹¨
+			System.out.println("//////4ë‹¨//////");
 			System.out.println("4 * 1 = "+4*1);
 			System.out.println("4 * 2 = "+4*2);
 			System.out.println("4 * 3 = "+4*3);
@@ -34,8 +34,8 @@ public class Gugudan {
 			System.out.println("4 * 7 = "+4*7);
 			System.out.println("4 * 8 = "+4*8); 
 			System.out.println("4 * 9 = "+4*9);	
-		//5´Ü
-			System.out.println("//////5´Ü//////");
+		//5ë‹¨
+			System.out.println("//////5ë‹¨//////");
 			System.out.println("5 * 1 = "+5*1);
 			System.out.println("5 * 2 = "+5*2);
 			System.out.println("5 * 3 = "+5*3);
@@ -45,8 +45,8 @@ public class Gugudan {
 			System.out.println("5 * 7 = "+5*7);
 			System.out.println("5 * 8 = "+5*8); 
 			System.out.println("5 * 9 = "+5*9);	
-		//6´Ü
-			System.out.println("//////6´Ü//////");
+		//6ë‹¨
+			System.out.println("//////6ë‹¨//////");
 			System.out.println("6 * 1 = "+6*1);
 			System.out.println("6 * 2 = "+6*2);
 			System.out.println("6 * 3 = "+6*3);
@@ -56,8 +56,8 @@ public class Gugudan {
 			System.out.println("6 * 7 = "+6*7);
 			System.out.println("6 * 8 = "+6*8); 
 			System.out.println("6 * 9 = "+6*9);	
-		//7´Ü
-			System.out.println("//////7´Ü//////");
+		//7ë‹¨
+			System.out.println("//////7ë‹¨//////");
 			System.out.println("7 * 1 = "+7*1);
 			System.out.println("7 * 2 = "+7*2);
 			System.out.println("7 * 3 = "+7*3);
@@ -67,8 +67,8 @@ public class Gugudan {
 			System.out.println("7 * 7 = "+7*7);
 			System.out.println("7 * 8 = "+7*8); 
 			System.out.println("7 * 9 = "+7*9);	
-		//8´Ü
-			System.out.println("//////8´Ü//////");
+		//8ë‹¨
+			System.out.println("//////8ë‹¨//////");
 			System.out.println("8 * 1 = "+8*1);
 			System.out.println("8 * 2 = "+8*2);
 			System.out.println("8 * 3 = "+8*3);
@@ -78,8 +78,8 @@ public class Gugudan {
 			System.out.println("8 * 7 = "+8*7);
 			System.out.println("8 * 8 = "+8*8); 
 			System.out.println("8 * 9 = "+8*9);	
-		//9´Ü
-			System.out.println("//////9´Ü//////");
+		//9ë‹¨
+			System.out.println("//////9ë‹¨//////");
 			System.out.println("9 * 1 = "+9*1);
 			System.out.println("9 * 2 = "+9*2);
 			System.out.println("9 * 3 = "+9*3);
