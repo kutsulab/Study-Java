@@ -1,112 +1,36 @@
+import java.util.Scanner;
 
 public class Gugudan {
 	public static void main(String[] args) {
+			Scanner sc = new Scanner(System.in);
+			System.out.println("몇 단을 입력하시겠습니까?");
+			int dan = sc.nextInt();
 			
-			int dan ;
-
-			//2단
-			dan = 2;
-			System.out.println("//////"+dan+"단//////");
-			System.out.println(dan+" * 1 = "+dan*1);
-			System.out.println(dan+" * 2 = "+dan*2);			
-			System.out.println(dan+" * 3 = "+dan*3);			
-			System.out.println(dan+" * 4 = "+dan*4);			
-			System.out.println(dan+" * 5 = "+dan*5);			
-			System.out.println(dan+" * 6 = "+dan*6);			
-			System.out.println(dan+" * 7 = "+dan*7);			
-			System.out.println(dan+" * 8 = "+dan*8);			
-			System.out.println(dan+" * 9 = "+dan*9);
+			sc.close();
 			
-			//3단
-			dan = 3;
 			System.out.println("//////"+dan+"단//////");
-			System.out.println(dan+" * 1 = "+dan*1);
-			System.out.println(dan+" * 2 = "+dan*2);			
-			System.out.println(dan+" * 3 = "+dan*3);			
-			System.out.println(dan+" * 4 = "+dan*4);			
-			System.out.println(dan+" * 5 = "+dan*5);			
-			System.out.println(dan+" * 6 = "+dan*6);			
-			System.out.println(dan+" * 7 = "+dan*7);			
-			System.out.println(dan+" * 8 = "+dan*8);			
-			System.out.println(dan+" * 9 = "+dan*9);		
-
-			//4단
-			dan = 4;
-			System.out.println("//////"+dan+"단//////");
-			System.out.println(dan+" * 1 = "+dan*1);
-			System.out.println(dan+" * 2 = "+dan*2);			
-			System.out.println(dan+" * 3 = "+dan*3);			
-			System.out.println(dan+" * 4 = "+dan*4);			
-			System.out.println(dan+" * 5 = "+dan*5);			
-			System.out.println(dan+" * 6 = "+dan*6);			
-			System.out.println(dan+" * 7 = "+dan*7);			
-			System.out.println(dan+" * 8 = "+dan*8);			
-			System.out.println(dan+" * 9 = "+dan*9);				
-
-			//5단
-			dan = 5;
-			System.out.println("//////"+dan+"단//////");
-			System.out.println(dan+" * 1 = "+dan*1);
-			System.out.println(dan+" * 2 = "+dan*2);			
-			System.out.println(dan+" * 3 = "+dan*3);			
-			System.out.println(dan+" * 4 = "+dan*4);			
-			System.out.println(dan+" * 5 = "+dan*5);			
-			System.out.println(dan+" * 6 = "+dan*6);			
-			System.out.println(dan+" * 7 = "+dan*7);			
-			System.out.println(dan+" * 8 = "+dan*8);			
-			System.out.println(dan+" * 9 = "+dan*9);
+			System.out.println();
+			int n;
 			
-			//6단
-			dan = 6;
-			System.out.println("//////"+dan+"단//////");
-			System.out.println(dan+" * 1 = "+dan*1);
-			System.out.println(dan+" * 2 = "+dan*2);			
-			System.out.println(dan+" * 3 = "+dan*3);			
-			System.out.println(dan+" * 4 = "+dan*4);			
-			System.out.println(dan+" * 5 = "+dan*5);			
-			System.out.println(dan+" * 6 = "+dan*6);			
-			System.out.println(dan+" * 7 = "+dan*7);			
-			System.out.println(dan+" * 8 = "+dan*8);			
-			System.out.println(dan+" * 9 = "+dan*9);
+			n=1;
+			System.out.println(dan+" * "+n+" = "+dan*n);
+			n=2;
+			System.out.println(dan+" * "+n+" = "+dan*n);
+			n=3;
+			System.out.println(dan+" * "+n+" = "+dan*n);
+			n=4;
+			System.out.println(dan+" * "+n+" = "+dan*n);
+			n=5;
+			System.out.println(dan+" * "+n+" = "+dan*n);
+			n=6;
+			System.out.println(dan+" * "+n+" = "+dan*n);
+			n=7;
+			System.out.println(dan+" * "+n+" = "+dan*n);
+			n=8;
+			System.out.println(dan+" * "+n+" = "+dan*n);
+			n=9;
+			System.out.println(dan+" * "+n+" = "+dan*n);
 			
-			//7단
-			dan = 7;
-			System.out.println("//////"+dan+"단//////");
-			System.out.println(dan+" * 1 = "+dan*1);
-			System.out.println(dan+" * 2 = "+dan*2);			
-			System.out.println(dan+" * 3 = "+dan*3);			
-			System.out.println(dan+" * 4 = "+dan*4);			
-			System.out.println(dan+" * 5 = "+dan*5);			
-			System.out.println(dan+" * 6 = "+dan*6);			
-			System.out.println(dan+" * 7 = "+dan*7);			
-			System.out.println(dan+" * 8 = "+dan*8);			
-			System.out.println(dan+" * 9 = "+dan*9);
-			
-			//8단
-			dan = 8;
-			System.out.println("//////"+dan+"단//////");
-			System.out.println(dan+" * 1 = "+dan*1);
-			System.out.println(dan+" * 2 = "+dan*2);			
-			System.out.println(dan+" * 3 = "+dan*3);			
-			System.out.println(dan+" * 4 = "+dan*4);			
-			System.out.println(dan+" * 5 = "+dan*5);			
-			System.out.println(dan+" * 6 = "+dan*6);			
-			System.out.println(dan+" * 7 = "+dan*7);			
-			System.out.println(dan+" * 8 = "+dan*8);			
-			System.out.println(dan+" * 9 = "+dan*9);
-			
-			//9단
-			dan = 9;
-			System.out.println("//////"+dan+"단//////");
-			System.out.println(dan+" * 1 = "+dan*1);
-			System.out.println(dan+" * 2 = "+dan*2);			
-			System.out.println(dan+" * 3 = "+dan*3);			
-			System.out.println(dan+" * 4 = "+dan*4);			
-			System.out.println(dan+" * 5 = "+dan*5);			
-			System.out.println(dan+" * 6 = "+dan*6);			
-			System.out.println(dan+" * 7 = "+dan*7);			
-			System.out.println(dan+" * 8 = "+dan*8);			
-			System.out.println(dan+" * 9 = "+dan*9);
-			
+			System.out.print("//////"+dan+"단 출력 끝//////");
 	}
 }
