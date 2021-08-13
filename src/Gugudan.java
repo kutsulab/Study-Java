@@ -8,29 +8,12 @@ public class Gugudan {
 			
 			sc.close();
 			
-			System.out.println("//////"+dan+"단//////");
-			System.out.println();
-			int n;
-			
-			n=1;
-			System.out.println(dan+" * "+n+" = "+dan*n);
-			n=2;
-			System.out.println(dan+" * "+n+" = "+dan*n);
-			n=3;
-			System.out.println(dan+" * "+n+" = "+dan*n);
-			n=4;
-			System.out.println(dan+" * "+n+" = "+dan*n);
-			n=5;
-			System.out.println(dan+" * "+n+" = "+dan*n);
-			n=6;
-			System.out.println(dan+" * "+n+" = "+dan*n);
-			n=7;
-			System.out.println(dan+" * "+n+" = "+dan*n);
-			n=8;
-			System.out.println(dan+" * "+n+" = "+dan*n);
-			n=9;
-			System.out.println(dan+" * "+n+" = "+dan*n);
-			
-			System.out.print("//////"+dan+"단 출력 끝//////");
+			System.out.println("======"+dan+"단 출력 시작======");
+			int n = 1;
+			while (n<10) {
+				System.out.println(dan+" * "+n+" = "+dan*n);
+				n ++;
+			}
+			System.out.println("======"+dan+"단 출력 끝======");
 	}
 }
