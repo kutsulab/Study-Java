@@ -1,6 +1,5 @@
 package gugudan;
 
-
 import java.util.Scanner;
 
 public class Input {
@@ -58,4 +57,3 @@ public class Input {
 		if (! normalinput) Notice.errorNotice("count_Range");
 	}
 }
-
