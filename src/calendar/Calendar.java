@@ -22,22 +22,29 @@ public class Calendar {
 
 	public static void main(String[] args) {
 
-		Scanner scanner = new Scanner(System.in);
 		Calendar cal = new Calendar();
+		String prompt = "cal> ";
+		Scanner scanner = new Scanner(System.in);
 
-		// 반복 횟수 입력(몇 번 질문할 지)
-		System.out.println("반복 횟수를 입력하세요.");
-		int repeat = scanner.nextInt();
-
+		int month = 0;
 		// 달을 입력하면 그 달의 최대 일수 출력
-		for (int i = 0; i < repeat; i++) {
-			System.out.println("달을 입력하면 최대 일수를 알려드립니다. 달을 입력해주세용");
-			int month = scanner.nextInt();
+		while (true) {
+			System.out.println("달을 입력하면 최대 일수를 알려드립니다. (-1 입력시 프로그램 중지, 1~12 이외 정수 입력시 다시 질문)");
+			System.out.print(prompt);
+			month = scanner.nextInt();
+
+			if (month > 12 || month == 0 || month <= -2) {
+				continue;
+			}
+
+			if (month == -1) {
+				break;
+			}
+
 			System.out.printf("%d월은 %d일까지 있습니다.\n", month, cal.getMaxDaysOfMonth(month));
 		}
-		System.out.println("끝!");
-
 		scanner.close();
+		System.out.println("끝!");
 
 	}
 }
