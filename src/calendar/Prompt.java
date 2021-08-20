@@ -11,16 +11,20 @@ public class Prompt {
 		int year, month;
 
 		
-		// 입력부 : 한계점 (int 타입의 변수가 아닐 경우 예외처리하지 못 함)
+		// 입력부
 
 		do {
 			// 년도 입력부
 			do {
 				System.out.println("년도를 입력해주세요. ( 0 입력 시 종료 )");
 				System.out.print(("YEAR>"));
+				try {
 				year = scanner.nextInt();
 				scanner.nextLine();
-
+				} catch (Exception e) {
+					scanner.nextLine();
+					continue;
+				}
 				if (year <= -1) {
 					continue;
 				} else {
@@ -35,8 +39,13 @@ public class Prompt {
 			do {
 				System.out.println("월을 입력해주세요. ( 0 입력 시 종료)");
 				System.out.print(("MONTH>"));
+				try {
 				month = scanner.nextInt();
 				scanner.nextLine();
+				} catch (Exception e) {
+					scanner.nextLine();
+					continue;
+				}
 
 				if (month <= -1 || month > 12) continue;
 				else break;

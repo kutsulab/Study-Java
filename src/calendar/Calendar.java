@@ -106,5 +106,6 @@ public class Calendar {
 			}
 		}
 		System.out.println();
+		System.out.println("----------------------------");
 	}
 }
