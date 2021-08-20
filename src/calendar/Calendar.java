@@ -22,6 +22,7 @@ public class Calendar {
 		}
 	}
 
+	
 	private int getMaxDaysOfMonth(int year, int month) {
 
 		if (isLeapYear(year)) {
@@ -31,46 +32,32 @@ public class Calendar {
 		}
 	}
 
-	private int getYearFirstweekday(int year) {
+	
+	private int getWeekday(int year, int month, int day) {
 
-		int leapyearcount;
-		int multiple4, multiple100, multiple400;
+		// 기준일 0001-01-01 월요일 (그레고리력 기준)
 
-		multiple4 = (int) ((year - 1) / (4.0));
-		multiple100 = (int) ((year - 1) / (100.0));
-		multiple400 = (int) ((year - 1) / (400.0));
-
-		// 서기 1년부터 전년까지의 윤년의 갯수
-		leapyearcount = multiple4 - (multiple100 - multiple400);
-
-		// 서기 1년 1월 1일로부터 해당 년 1월 1일까지 경과한 일 수
-		int daycount = (365 * (year - 1 - leapyearcount)) + (366 * (leapyearcount));
-
-		// daycount_rest : daycount를 7로 나눈 나머지
-		int daycount_rest = daycount % 7;
-
-		return (1 + daycount_rest) % 7;
-	}
-
-	int getMonthFirstweekday(int year, int month) {
-
-		int YearFirstweekday = getYearFirstweekday(year);
-
-		// 해당년 1월 1일로부터 그 달 1일까지 경과한 일 수
+		int standardyear = 1;
+		int standardWeekday = 1;
+		
 		int daycount = 0;
-
-		if (month >= 2) {
-			for (int i = 1; i < month; i++) {
-				daycount += getMaxDaysOfMonth(year, i);
-			}
-			int daycount_rest = daycount % 7;
-
-			return (YearFirstweekday + daycount_rest) % 7;
+		
+		// 기준일 기준 해당 년도 첫날까지의 날짜 경과
+		for (int i = standardyear; i < year; i++) {
+			int variance = (isLeapYear(i)) ? 366 : 365;
+			daycount += variance;
 		}
 
-		else {
-			return YearFirstweekday;
+		// 해당 월 첫날 전까지의 날짜 경과
+		for (int i = 1; i < month; i++) {
+			int variance = getMaxDaysOfMonth(year, i);
+			daycount += variance;
 		}
+		
+		// 해당 날까지의 날짜 경과
+		daycount += day - 1;
+
+		return (standardWeekday + (daycount % 7)) % 7;
 	}
 
 // 달력 출력부
@@ -80,9 +67,8 @@ public class Calendar {
 		System.out.println("----------------------------");
 
 		int maxDays = getMaxDaysOfMonth(year, month);
-		int monthFirstweekday = getMonthFirstweekday (year, month);
-		
-		
+		int monthFirstweekday = getWeekday(year, month, 1);
+
 		// 공백 입력부
 		if (monthFirstweekday >= 1) {
 			for (int i = 1; i <= monthFirstweekday; i++) {
