@@ -10,6 +10,7 @@ public class Prompt {
 
 		int year, month;
 
+		
 		// 입력부
 
 		do {

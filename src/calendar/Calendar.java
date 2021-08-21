@@ -22,7 +22,6 @@ public class Calendar {
 		}
 	}
 
-	
 	private int getMaxDaysOfMonth(int year, int month) {
 
 		if (isLeapYear(year)) {
@@ -32,16 +31,15 @@ public class Calendar {
 		}
 	}
 
-	
 	private int getWeekday(int year, int month, int day) {
 
 		// 기준일 0001-01-01 월요일 (그레고리력 기준)
 
 		int standardyear = 1;
 		int standardWeekday = 1;
-		
+
 		int daycount = 0;
-		
+
 		// 기준일 기준 해당 년도 첫날까지의 날짜 경과
 		for (int i = standardyear; i < year; i++) {
 			int variance = (isLeapYear(i)) ? 366 : 365;
@@ -53,7 +51,7 @@ public class Calendar {
 			int variance = getMaxDaysOfMonth(year, i);
 			daycount += variance;
 		}
-		
+
 		// 해당 날까지의 날짜 경과
 		daycount += day - 1;
 
