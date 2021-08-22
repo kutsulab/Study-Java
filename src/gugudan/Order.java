@@ -89,7 +89,7 @@ public class Order {
 				}
 
 				if (firstdan > finaldan) {
-					System.out.println("firstdan 이상 9 이하의 정수를 다시 입력해주세요.");
+					System.out.println(firstdan+" 이상 9 이하의 정수를 다시 입력해주세요.");
 					continue;
 				}
 
