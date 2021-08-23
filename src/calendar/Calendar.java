@@ -1,10 +1,17 @@
 package calendar;
 
 public class Calendar {
-
+	
+	int year, month;
+	
 	private static final int[] MAX_DAYS = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 	private static final int[] LEAP_MAX_DAYS = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
+	Calendar (int year, int month) {
+		this.year = year;
+		this.month = month;
+	}
+	
 	private static boolean isLeapYear(int year) {
 
 		// 서력 기준 년도가
@@ -59,7 +66,7 @@ public class Calendar {
 	}
 
 // 달력 출력부
-	void printCalendar(int year, int month) {
+	void printCalendar() {
 		System.out.printf("=======<<%4d년%3d월>>========\n", year, month);
 		System.out.printf("%3s %3s %3s %3s %3s %3s %3s\n", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");
 		System.out.println("----------------------------");

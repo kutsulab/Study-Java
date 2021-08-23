@@ -1,7 +1,7 @@
 package gugudan;
 
 public class Order {
-
+	
 	public void order1() {
 		do {
 			int dan;
