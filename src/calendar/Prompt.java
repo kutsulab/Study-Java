@@ -16,7 +16,7 @@ public class Prompt {
 			if (month == 0)
 				break;
 
-			Calendar cal = new Calendar(year, month);
+			Calendar cal = new Calendar(year, month, 1);
 			cal.printCalendar();
 
 		} while (true);
