@@ -37,7 +37,12 @@ public class AllData {
 		return index;
 	}
 	
-	
+	// 특정인의 존재성 확인
+	public boolean isThisPersonHere(String name) {
+		
+		if (getPersonalIndex(name)!=-1) return true;
+		else return false;
+	}
 	
 	public String getPersonalName(int index) 
 		{return allData.get(index).getName();}
