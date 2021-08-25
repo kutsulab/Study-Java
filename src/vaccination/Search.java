@@ -3,7 +3,7 @@ package vaccination;
 public class Search {
 	
 	
-	public void searchMain(AllData all) {
+	public static void searchMain(AllData all) {
 		
 		
 		System.out.println("==========================================");
@@ -36,7 +36,7 @@ public class Search {
 	
 	}
 	
-	public void searchAll(AllData all) {
+	public static void searchAll(AllData all) {
 		System.out.println("==========================================");
 		System.out.printf("%s	%s	%s	%s%n","이름","성별","나이","접종백신");
 		System.out.println("------------------------------------------");
@@ -49,7 +49,7 @@ public class Search {
 		System.out.println("==========================================");
 	}
 	
-	public void searchName(AllData all) {
+	private static void searchName(AllData all) {
 		System.out.println("찾으시려는 성명을 입력해주세요.");
 		System.out.print("SearchName > ");
 		String searchName = Input.sc.nextLine();
@@ -69,15 +69,15 @@ public class Search {
 		System.out.println("==========================================");
 	}
 	
-	public void searchGender(AllData a) {
+	private static void searchGender(AllData a) {
 		System.out.println("미구현 상태입니다.");
 	}
 	
-	public void searchAge(AllData a) {
+	private static void searchAge(AllData a) {
 		System.out.println("미구현 상태입니다.");
 	}
 	
-	public void searchVaccine(AllData a) {
+	private static void searchVaccine(AllData a) {
 		System.out.println("미구현 상태입니다.");
 	}
 }
