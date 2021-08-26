@@ -6,7 +6,7 @@ public class Edit {
 		
 		System.out.println("==========================================");
 		System.out.println(":          어떤 방식으로 수정하시겠습니까?");
-		System.out.println(": [1] 해당인의 정보를 지우고, 타인의 데이터로 대체 (미구현)");
+		System.out.println(": [1] 특정인의 모든 정보 수정");
 		System.out.println(": [2] 이름 수정");
 		System.out.println(": [3] 성별 수정 (미구현)");
 		System.out.println(": [4] 나이 수정 (미구현)");
@@ -35,9 +35,89 @@ public class Edit {
 	}
 	
 	public static void editAll(AllData all) {
-		System.out.println("미구현 상태입니다.");
-		return;
-	}
+		System.out.println("변경하시려는 성명을 입력해주세요. ");
+		System.out.print("Name > ");
+		String beforeName = Input.sc.nextLine();
+		
+		System.out.println(beforeName+"님이 존재하는 지 조회합니다.");
+		
+		if (!all.isThisPersonHere(beforeName)) {
+			System.out.println(beforeName+"님은 명단에 존재하지 않습니다.");
+			System.out.println("이름 수정 기능을 종료합니다.");
+			return;
+		}
+		
+		else {
+			System.out.println(beforeName+"님이 확인됐습니다.");
+			int index = all.getPersonalIndex(beforeName);
+			
+			// 앞까지는 기존 코드 재활용했고 여기서부터는 정상 입력상황 가정 테스트 (예외처리 아직 안 함)
+			String beforeGender = all.getPersonalGender(index);
+			int beforeAge = all.getPersonalAge(index);
+			String beforeVaccine = all.getPersonalVaccine(index);
+			
+			System.out.println(beforeName+"님의 성명을 무엇으로 변경하시겠습니까?");
+			System.out.print("EditName >");
+			String editName = Input.sc.nextLine();
+			
+			System.out.println(beforeName+"님의 성별을 무엇으로 변경하시겠습니까?");
+			System.out.print("EditGender >");
+			String input_editGender = Input.sc.nextLine();
+			
+			String editGender;
+			if (input_editGender.equals("M")) editGender = "남자";
+			else editGender = "여자";
+			
+			System.out.println(beforeName+"님의 연령을 몇 세로 변경하시겠습니까?");
+			System.out.print("EditAge >");
+			int editAge = Input.sc.nextInt();
+			Input.sc.nextLine();
+			
+			System.out.println(beforeName+"님의 백신 접종 상태를 무엇으로 변경하시겠습니까?");
+			System.out.print("EditVaccine >");
+			String input_editVaccine = Input.sc.nextLine();
+			
+			String editVaccine;
+			
+			if (input_editVaccine.equals("1")) editVaccine = "화이자";
+			else if (input_editVaccine.equals("2")) editVaccine = "모더나";
+			else editVaccine="얀센";
+			
+			boolean run = true;
+			
+			do {
+				System.out.println(beforeName+"님의 정보를 정말로 다음과 같이 변경하시겠습니까?");
+				System.out.printf("%7s	%s	%s	%s	%s%n","       ","이름","성별","나이","백신");
+				System.out.printf("%7s	%s	%s	%d	%s%n","변경 전 : ",beforeName,beforeGender,beforeAge,beforeVaccine);
+				System.out.printf("%7s	%s	%s	%d	%s%n","변경 후 : ",editName,editGender,editAge,editVaccine);
+				
+				System.out.println("[1] 네네 / [2] 아니오아니오");
+				System.out.println("Really? >");
+				String really = Input.sc.nextLine();
+				
+				switch (really) {
+				
+				default : 
+					System.out.println("잘못 입력하셨습니다.");
+					break;
+				case "2" :
+					System.out.println(beforeName+"님의 정보를 수정하지 않습니다.");
+					run = false;
+					break;
+				case "1" :
+					all.editPersonalAll(index, editName,input_editGender,editAge,input_editVaccine);
+					System.out.println(beforeName+"님의 정보가 변경되었습니다.");
+					run = false;
+					break;
+				}
+				
+			} while (run);
+			
+			}
+
+			
+			
+		}
 	
 	private static void editName(AllData all) {
 
@@ -66,7 +146,7 @@ public class Edit {
 				do {
 					System.out.println(beforeName+"님의 성명을 정말로 '"+editName+"'으로 변경하시겠습니까?");
 					System.out.println("[1] 네네 / [2] 아니오아니오");
-					System.out.println("Really? >");
+					System.out.print("Really? >");
 					String really = Input.sc.nextLine();
 					
 					switch (really) {

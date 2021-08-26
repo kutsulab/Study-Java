@@ -18,8 +18,6 @@ public class Registration {
 		all.addPersonalData(p);
 		System.out.println(regName + "님의 백신 접종 현황이 등록되었습니다.");
 	}
-
-	
 	
 	private void setRegName(AllData all) {
 
