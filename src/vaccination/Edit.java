@@ -6,10 +6,10 @@ public class Edit {
 		
 		System.out.println("==========================================");
 		System.out.println(":          어떤 방식으로 수정하시겠습니까?");
-		System.out.println(": [1] 특정인의 모든 정보 수정");
+		System.out.println(": [1] 특정인의 모든 정보 수정(예외처리 안 됨)");
 		System.out.println(": [2] 이름 수정");
-		System.out.println(": [3] 성별 수정 (미구현)");
-		System.out.println(": [4] 나이 수정 (미구현)");
+		System.out.println(": [3] 성별 수정");
+		System.out.println(": [4] 나이 수정");
 		System.out.println(": [5] 접종백신 수정 (미구현)");
 		System.out.println(": [h] 도움말(미구현) [q] 종료");
 		System.out.println("==========================================");
@@ -251,8 +251,83 @@ public class Edit {
 
 	
 	private static void editAge(AllData all) {
-		System.out.println("미구현 상태입니다.");
-		return;
+		System.out.println("변경하시려는 분의 성명을 입력해주세요. ");
+		System.out.print("Name > ");
+		String beforeName = Input.sc.nextLine();
+		
+		System.out.println(beforeName+"님이 존재하는 지 조회합니다.");
+		
+		if (!all.isThisPersonHere(beforeName)) {
+			System.out.println(beforeName+"님은 명단에 존재하지 않습니다.");
+			System.out.println("연령 수정 기능을 종료합니다.");
+			return;
+		}
+		
+		
+		else {
+				System.out.println(beforeName+"님이 확인됐습니다.");
+				int index = all.getPersonalIndex(beforeName);
+	
+				boolean run = true;
+				int input_Age;
+				int editAge = 0;
+				
+				do {
+					System.out.println(beforeName+"님의 연령을 몇 세로 변경하시겠습니까? (0 이상)");
+					System.out.print("editAge >");
+
+					try {
+					input_Age = Input.sc.nextInt();
+					Input.sc.nextLine();
+					} catch(Exception e) {
+						Input.sc.nextLine();
+						System.out.println("잘못 입력하셨습니다.");
+						continue;
+					}
+					
+					if (input_Age<0) {
+						System.out.println("잘 못 입력하셨습니다.");
+						continue;
+					}
+					
+					else {
+						editAge = input_Age;
+						run = false;
+					}
+					
+				} while (run);
+				
+				
+				
+				run = true;
+				
+				do {
+					System.out.println(beforeName+"님의 연령을 정말로 '"+editAge+"'로 변경하시겠습니까?");
+					System.out.println("[1] 네네 / [2] 아니오아니오");
+					System.out.print("Really? >");
+					String really = Input.sc.nextLine();
+					
+					switch (really) {
+					
+					default : 
+						System.out.println("잘 못 입력하셨습니다.");
+						break;
+					case "2" :
+						System.out.println(beforeName+"님의 연령을 수정하지 않습니다.");
+						run = false;
+						break;
+					case "1" :
+						all.editPersonalAge(index, editAge);
+						System.out.println(beforeName+"님의 연령이 "+editAge+"세로 변경되었습니다.");
+						run = false;
+						break;
+					}
+					
+				} while (run);
+			
+			System.out.println("연령 수정 기능을 종료합니다.");
+			return;
+		}3
 	}
 	
 	private static void editVaccine(AllData all) {
