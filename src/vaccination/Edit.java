@@ -174,9 +174,81 @@ public class Edit {
 	}
 	
 	private static void editGender(AllData all) {
-		System.out.println("미구현 상태입니다.");
-		return;
+		System.out.println("변경하시려는 분의 성명을 입력해주세요. ");
+		System.out.print("Name > ");
+		String beforeName = Input.sc.nextLine();
+		
+		System.out.println(beforeName+"님이 존재하는 지 조회합니다.");
+		
+		if (!all.isThisPersonHere(beforeName)) {
+			System.out.println(beforeName+"님은 명단에 존재하지 않습니다.");
+			System.out.println("성별 수정 기능을 종료합니다.");
+			return;
+		}
+		
+		
+		else {
+				System.out.println(beforeName+"님이 확인됐습니다.");
+				int index = all.getPersonalIndex(beforeName);
+	
+				boolean run = true;
+				String input_Gender;
+				String editGender = "무성";
+				
+				do {
+					System.out.println(beforeName+"님의 성별을 무엇으로 변경하시겠습니까? (M, F)");
+					System.out.print("EditGender >");
+					
+					input_Gender = Input.sc.nextLine();
+					
+					switch (input_Gender) {
+					default :
+						break;
+					case "M" : 
+						editGender = "남자";
+						run = false;
+						break;
+					case "F" : 
+						editGender = "여자";
+						run = false;
+						break;
+
+					}
+					
+				} while (run);
+			
+				
+				run = true;
+				
+				do {
+					System.out.println(beforeName+"님의 성별을 정말로 '"+editGender+"'로 변경하시겠습니까?");
+					System.out.println("[1] 네네 / [2] 아니오아니오");
+					System.out.print("Really? >");
+					String really = Input.sc.nextLine();
+					
+					switch (really) {
+					
+					default : 
+						System.out.println("잘 못 입력하셨습니다.");
+						break;
+					case "2" :
+						System.out.println(beforeName+"님의 성별을 수정하지 않습니다.");
+						run = false;
+						break;
+					case "1" :
+						all.editPersonalGender(index, editGender);
+						System.out.println(beforeName+"님의 성별이 '"+editGender+"'으로 변경되었습니다.");
+						run = false;
+						break;
+					}
+					
+				} while (run);
+			
+			System.out.println("성별 수정 기능을 종료합니다.");
+			return;
+		}
 	}
+
 	
 	private static void editAge(AllData all) {
 		System.out.println("미구현 상태입니다.");
