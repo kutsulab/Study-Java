@@ -41,10 +41,7 @@ public class Search {
 		System.out.printf("%s	%s	%s	%s%n","이름","성별","나이","접종백신");
 		System.out.println("------------------------------------------");
 		for (int i=0; i< all.getAllData().size(); i++) {
-			System.out.print(all.getPersonalName(i)+"	");
-			System.out.print(all.getPersonalGender(i)+"	");
-			System.out.print(all.getPersonalAge(i)+"	");
-			System.out.print(all.getPersonalVaccine(i)+"\n");
+			System.out.println(all.getPersonalData(i));
 		}
 		System.out.println("==========================================");
 	}
@@ -60,10 +57,7 @@ public class Search {
 		for (int i=0; i < all.getAllData().size(); i++) {
 			
 			if (all.getPersonalName(i).contains(searchName)) {
-				System.out.print(all.getPersonalName(i)+"	");
-				System.out.print(all.getPersonalGender(i)+"	");
-				System.out.print(all.getPersonalAge(i)+"	");
-				System.out.print(all.getPersonalVaccine(i)+"\n");
+				System.out.print(all.getPersonalData(i)+"\n");
 			}
 		}
 		System.out.println("==========================================");

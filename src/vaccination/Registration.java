@@ -6,19 +6,46 @@ public class Registration {
 	private int regAge;
 
 	public void registrationMain(AllData all) {
-		
+
 		System.out.println("==========================================");
-		
+
 		setRegName(all);
 		setRegGender();
 		setregAge();
 		setregVaccine();
 
-		PersonalData p = new PersonalData(regName, regGender, regAge, regVaccine);
-		all.addPersonalData(p);
-		System.out.println(regName + "님의 백신 접종 현황이 등록되었습니다.");
+		PersonalData tempData = new PersonalData(regName, regGender, regAge, regVaccine);
+
+		boolean run = true, really = true;
+
+		while (run) {
+			System.out.println("정말로" + regName + "님의 정보를 등록하시겠습니까? [1] 예 [2] 아니오");
+			String input_really = Input.sc.nextLine();
+
+			switch (input_really) {
+			case "1":
+				really = true;
+				run = false;
+				break;
+			case "2":
+				really = false;
+				run = false;
+				break;
+			default:
+				run = true;
+				break;
+			}
+		}
+		
+		if (!really)
+			return;
+		else {
+			System.out.println(regName + "님의 백신 접종 현황이 등록되었습니다.");
+			all.addPersonalData(tempData);
+		}
+
 	}
-	
+
 	private void setRegName(AllData all) {
 
 		while (true) {
@@ -37,27 +64,29 @@ public class Registration {
 			}
 		}
 	}
+
 	private void setRegGender() {
 		boolean run = true;
-		
+
 		while (run) {
 			System.out.println("성별을 입력해주세요. (M:남성) (F:여성)");
 			System.out.print("Gender > ");
 
 			String tempGender = Input.sc.nextLine();
-			
-			switch(tempGender) {
-			case "M" : case "F" :
+
+			switch (tempGender) {
+			case "M":
+			case "F":
 				regGender = tempGender;
 				run = false;
 				break;
-			default : 
+			default:
 				System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
 				break;
 			}
 		}
 	}
-	
+
 	private void setregAge() {
 
 		int tempAge;
@@ -73,31 +102,33 @@ public class Registration {
 				continue;
 			}
 
-			
-			if (tempAge<0) continue;
-			else break;
+			if (tempAge < 0)
+				continue;
+			else
+				break;
 		}
-		
+
 		regAge = tempAge;
+		return;
 	}
 
 	private void setregVaccine() {
 		boolean run = true;
-		
+
 		while (run) {
 			System.out.println("접종 받은 백신에 해당하는 번호를 입력해주세요. (1:화이자) (2:모더나) (3:얀센)");
 			System.out.printf("Vaccine Number > ");
 			String tempVaccine = Input.sc.nextLine();
-			
-			switch(tempVaccine) {
-			case "1" : case "2" : case "3":
+
+			switch (tempVaccine) {
+			case "1": case "2": case "3":
 				regVaccine = tempVaccine;
 				run = false;
 				break;
-			default : 
+			default:
 				break;
 			}
 		}
 	}
-	
+
 }

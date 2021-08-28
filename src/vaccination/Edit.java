@@ -110,13 +110,9 @@ public class Edit {
 					run = false;
 					break;
 				}
-				
+		
 			} while (run);
-			
 			}
-
-			
-			
 		}
 	
 	private static void editName(AllData all) {
