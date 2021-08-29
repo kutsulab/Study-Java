@@ -63,8 +63,41 @@ public class Search {
 		System.out.println("==========================================");
 	}
 	
-	private static void searchGender(AllData a) {
-		System.out.println("미구현 상태입니다.");
+	private static void searchGender(AllData all) {
+		String searchGender = "없음", input_Gender;
+		boolean run = true;
+		
+		do {
+		System.out.println("찾으시려는 성별을 입력해주세요. [1] 남자 [2] 여자");
+		System.out.print("SearchGender > ");
+		input_Gender = Input.sc.nextLine();
+		
+			switch (input_Gender) {
+			default :
+				System.out.println("잘못 입력하셨습니다.");
+				break;
+			case "1" :
+				searchGender = "남자";
+				run = false;
+				break;
+			case "2" :
+				searchGender = "여자";
+				run = false;
+				break;
+			}
+		
+		} while (run);
+		
+		System.out.println("==========================================");
+		System.out.printf("%s	%s	%s	%s%n","이름","성별","나이","접종백신");
+		System.out.println("------------------------------------------");
+		for (int i=0; i < all.getAllData().size(); i++) {
+			
+			if (all.getPersonalGender(i).contains(searchGender)) {
+				System.out.print(all.getPersonalData(i)+"\n");
+			}
+		}
+		System.out.println("==========================================");
 	}
 	
 	private static void searchAge(AllData a) {
