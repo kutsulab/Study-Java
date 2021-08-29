@@ -100,11 +100,63 @@ public class Search {
 		System.out.println("==========================================");
 	}
 	
-	private static void searchAge(AllData a) {
-		System.out.println("미구현 상태입니다.");
+	private static void searchAge(AllData all) {
+		int input_Age;
+		boolean run = true;
+		int searchAge_min = 0;
+		int searchAge_max = 10;
+		
+		do {
+			System.out.println("찾으시고자 하는 연령대를 검색해주세요.");
+			System.out.println("[0] 0세~9세 [1] 10대 [2] 20대 [3] 30대 [4] 40대");
+			System.out.println("[5] 50대 [6] 60대 [7] 70대 [8] 80대 [9] 90대 [10] 100대 이상");
+			System.out.print("SearchAge > ");
+			
+			try {input_Age = Input.sc.nextInt();
+				Input.sc.nextLine();
+			} catch (Exception e) {
+				Input.sc.nextLine();
+				System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
+				continue;
+			}
+			if (input_Age < 0) {
+				System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
+			}
+				
+			else {
+				System.out.println("==========================================");
+				System.out.printf("%s	%s	%s	%s%n","이름","성별","나이","접종백신");
+				System.out.println("------------------------------------------");
+				
+				
+				if (0<=input_Age&&input_Age<=9) {
+					searchAge_min = 10 *input_Age;
+					searchAge_max = searchAge_min + 9;
+					
+					for (int i=0; i < all.getAllData().size(); i++) {
+						
+						if (searchAge_min<=all.getPersonalAge(i) && all.getPersonalAge(i) <= searchAge_max) {
+							System.out.print(all.getPersonalData(i)+"\n");
+						}
+					}	
+ 				}
+				
+				else {
+					searchAge_min = 100;
+					for (int i=0; i < all.getAllData().size(); i++) {
+						
+						if (searchAge_min<=all.getPersonalAge(i)) {
+							System.out.print(all.getPersonalData(i)+"\n");
+							}
+						}	
+					}
+				run = false;	
+				}
+		} while (run);
+		System.out.println("==========================================");
 	}
 	
-	private static void searchVaccine(AllData a) {
+	private static void searchVaccine(AllData all) {
 		System.out.println("미구현 상태입니다.");
 	}
 }

@@ -19,7 +19,7 @@ public class Registration {
 		boolean run = true, really = true;
 
 		while (run) {
-			System.out.println("정말로" + regName + "님의 정보를 등록하시겠습니까? [1] 예 [2] 아니오");
+			System.out.println("정말로 " + regName + "님의 정보를 등록하시겠습니까? [1] 예 [2] 아니오");
 			String input_really = Input.sc.nextLine();
 
 			switch (input_really) {
