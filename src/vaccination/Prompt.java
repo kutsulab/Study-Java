@@ -1,9 +1,6 @@
 package vaccination;
 
 public class Prompt {
-	
-	//인스턴스 변수가 존재하는가? 아니오 아니오
-	
 	public static void runPrompt() {
 		
 		AllData all = new AllData();
@@ -20,7 +17,7 @@ public class Prompt {
 			
 			System.out.println("==========================================");
 			System.out.println(":          A사 사원 백신 접종 현황");
-			System.out.println(": [1] 조회 (미완성)");
+			System.out.println(": [1] 조회");
 			System.out.println(": [2] 등록");
 			System.out.println(": [3] 개인 정보 수정(미완성)");
 			System.out.println(": [4] 개인 정보 삭제(미구현)");
