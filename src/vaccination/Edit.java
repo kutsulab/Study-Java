@@ -6,12 +6,12 @@ public class Edit {
 		
 		System.out.println("==========================================");
 		System.out.println(":          어떤 방식으로 수정하시겠습니까?");
-		System.out.println(": [1] 특정인의 모든 정보 수정(예외처리 안 됨)");
+		System.out.println(": [1] 특정인의 모든 정보 수정");
 		System.out.println(": [2] 이름 수정");
 		System.out.println(": [3] 성별 수정");
 		System.out.println(": [4] 나이 수정");
 		System.out.println(": [5] 백신 접종 상태 수정");
-		System.out.println(": [h] 도움말(미구현) [q] 종료");
+		System.out.println(": [h] 수정 기능 도움말 [q] 종료");
 		System.out.println("==========================================");
 		
 		while (true) {
@@ -26,7 +26,7 @@ public class Edit {
 			else if (order.equals("3")) editGender(all);
 			else if (order.equals("4")) editAge(all);
 			else if (order.equals("5")) editVaccine(all);
-			else if (order.equals("h")) System.out.println("도움말 기능은 추후 구현하겠습니다.");
+			else if (order.equals("h")) editHelp();
 			else if (order.equals("q")) break;
 			else continue;	
 		}
@@ -56,34 +56,101 @@ public class Edit {
 			int beforeAge = all.getPersonalAge(index);
 			String beforeVaccine = all.getPersonalVaccine(index);
 			
+			
 			System.out.println(beforeName+"님의 성명을 무엇으로 변경하시겠습니까?");
 			System.out.print("EditName >");
 			String editName = Input.sc.nextLine();
 			
-			System.out.println(beforeName+"님의 성별을 무엇으로 변경하시겠습니까?");
-			System.out.print("EditGender >");
-			String input_editGender = Input.sc.nextLine();
-			
-			String editGender;
-			if (input_editGender.equals("M")) editGender = "남자";
-			else editGender = "여자";
-			
-			System.out.println(beforeName+"님의 연령을 몇 세로 변경하시겠습니까?");
-			System.out.print("EditAge >");
-			int editAge = Input.sc.nextInt();
-			Input.sc.nextLine();
-			
-			System.out.println(beforeName+"님의 백신 접종 상태를 무엇으로 변경하시겠습니까?");
-			System.out.print("EditVaccine >");
-			String input_editVaccine = Input.sc.nextLine();
-			
-			String editVaccine;
-			
-			if (input_editVaccine.equals("1")) editVaccine = "화이자";
-			else if (input_editVaccine.equals("2")) editVaccine = "모더나";
-			else editVaccine="얀센";
 			
 			boolean run = true;
+			String input_Gender;
+			String editGender = "무성";
+			
+			do {
+				System.out.println(beforeName+"님의 성별을 무엇으로 변경하시겠습니까? (M, F)");
+				System.out.print("EditGender >");
+				
+				input_Gender = Input.sc.nextLine();
+				
+				switch (input_Gender) {
+				default :
+					break;
+				case "M" : 
+					editGender = "남자";
+					run = false;
+					break;
+				case "F" : 
+					editGender = "여자";
+					run = false;
+					break;
+
+				}
+				
+			} while (run);
+			
+			run = true;
+			int input_Age;
+			int editAge = 0;
+			
+			do {
+				System.out.println(beforeName+"님의 연령을 몇 세로 변경하시겠습니까? (0 이상)");
+				System.out.print("editAge >");
+
+				try {
+				input_Age = Input.sc.nextInt();
+				Input.sc.nextLine();
+				} catch(Exception e) {
+					Input.sc.nextLine();
+					System.out.println("잘못 입력하셨습니다.");
+					continue;
+				}
+				
+				if (input_Age<0) {
+					System.out.println("잘 못 입력하셨습니다.");
+					continue;
+				}
+				
+				else {
+					editAge = input_Age;
+					run = false;
+				}
+				
+			} while (run);
+			
+			run = true;
+			String input_Vaccine;
+			String editVaccine = "없음";
+			
+			do {
+				System.out.println(beforeName+"님의 백신 접종상태를 무엇으로 변경하시겠습니까?");
+				System.out.println("[1] 화이자 [2] 모더나 [3] 얀센");
+				System.out.print("EditVaccine > ");
+				
+				input_Vaccine = Input.sc.nextLine();
+				
+				switch (input_Vaccine) {
+				default :
+					System.out.println("잘못 입력하셨습니다.");
+					break;
+				case "1" : 
+					editVaccine = "화이자";
+					run = false;
+					break;
+				case "2" : 
+					editVaccine = "모더나";
+					run = false;
+					break;
+				case "3" : 
+					editVaccine = "얀센";
+					run = false;
+					break;
+				}
+				
+			} while (run);
+		
+			
+			run = true;
+
 			
 			do {
 				System.out.println(beforeName+"님의 정보를 정말로 다음과 같이 변경하시겠습니까?");
@@ -105,7 +172,7 @@ public class Edit {
 					run = false;
 					break;
 				case "1" :
-					all.editPersonalAll(index, editName,input_editGender,editAge,input_editVaccine);
+					all.editPersonalAll(index, editName,editGender,editAge,editVaccine);
 					System.out.println(beforeName+"님의 정보가 변경되었습니다.");
 					run = false;
 					break;
@@ -406,5 +473,17 @@ public class Edit {
 			System.out.println("백신 접종상태 수정 기능을 종료합니다.");
 			return;
 		}
+	}
+	
+	private static void editHelp() {
+		System.out.println("================수정 도움말====================");
+		System.out.println("[1] 모든 정보 수정 : 입력한 이름에 해당하는 사원의 모든 정보를 수정합니다.");
+		System.out.println("[2] 이름 수정 : 입력한 이름에 해당하는 사원의 이름을 수정합니다.");
+		System.out.println("[3] 성별 수정 : 입력한 이름에 해당하는 사원의 성별을 수정합니다.");
+		System.out.println("[4] 나이 수정 : 입력한 이름에 해당하는 사원의 나이를 수정합니다.");
+		System.out.println("[5] 백신 접종 상태 수정 : 입력한 이름에 해당하는 사원의 백신 접종 상태를 수정합니다.");
+		System.out.println("[h] 수정 기능의 도움말을 봅니다.");
+		System.out.println("[q] 수정 기능을 그만둡니다.");
+		System.out.println("==========================================");
 	}
 }

@@ -13,7 +13,7 @@ public class Search {
 		System.out.println(": [3] 성별로 조회");
 		System.out.println(": [4] 연령대별 조회");
 		System.out.println(": [5] 접종 백신으로 조회");
-		System.out.println(": [h] 도움말 [q] 종료");
+		System.out.println(": [h] 조회 기능 도움말 [q] 종료");
 		System.out.println("==========================================");
 		
 	while (true) {
