@@ -112,6 +112,10 @@ public class AllData {
 		return;
 	}
 	
+	public void deletePersonalData (int index) {
+		allData.remove(index);
+		return;
+	}
 }
 
 

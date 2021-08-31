@@ -6,7 +6,7 @@ public class Registration {
 	private int regAge;
 
 	public void registrationMain(AllData all) {
-
+		
 		System.out.println("==========================================");
 
 		setRegName(all);
