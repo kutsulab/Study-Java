@@ -23,6 +23,7 @@ class Input {
 				rqi.notValidIntMessage();
 				continue;
 			}
+			
 		} while (true);
 		
 		// 3. 유효한 값을 입력했을 경우 반환
@@ -37,12 +38,14 @@ class Input {
 				rqi.request();
 				tempInt = scanner.nextInt();
 				scanner.nextLine();
-			} catch (Exception e) {
+			} catch (NumberFormatException ne) {
 				scanner.nextLine();
 				rqi.exceptionMessage(); // int 타입이 아닌 값을 입력했을 때의 경고 메세지
 				continue;
 			}
+			
 			break;
+			
 		} while (true);
 		return tempInt;
 	}

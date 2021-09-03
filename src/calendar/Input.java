@@ -11,7 +11,7 @@ public class Input {
 
 		do {
 			System.out.println("년도를 입력해주세요. ( 0 입력 시 종료 )");
-			System.out.print(("YEAR>"));
+			System.out.print(("YEAR> "));
 
 			try {
 				year = scanner.nextInt();
@@ -37,7 +37,7 @@ public class Input {
 		
 		do {
 			System.out.println("월을 입력해주세요. ( 0 입력 시 종료)");
-			System.out.print(("MONTH>"));
+			System.out.print(("MONTH> "));
 			try {
 				month = scanner.nextInt();
 				scanner.nextLine();

@@ -10,11 +10,9 @@ interface Request_Int extends Request {
 	void notValidIntMessage();
 }
 
-
 //Sample
 class GuGuDanRequest implements Request_Int {
 
-	
 	@Override
 	public void request() {
 		System.out.println("=================================");
