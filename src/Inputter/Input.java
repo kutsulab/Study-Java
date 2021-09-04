@@ -1,52 +1,13 @@
-package Inputter;
+package inputter;
 
-import java.util.Scanner;
-
-class Input {
-	static Scanner scanner = new Scanner(System.in);
-
-	public static int getInt() {
-		
-		int tempInt = 0;
-		int returnInt = 0;
-		Request_Int rqi = new GuGuDanRequest();
-
-		do {
-			// 1. 값 입력 요청 + 값 입력 + int 타입이 아닌 값을 입력했을 때에 대한 예외처리
-			tempInt = getTemp_int(rqi);
-
-			// 2. 값의 유효성 검사
-			if (rqi.int_condition(tempInt)) {
-				returnInt = tempInt;
-				break;
-			} else {
-				rqi.notValidIntMessage();
-				continue;
-			}
-			
-		} while (true);
-		
-		// 3. 유효한 값을 입력했을 경우 반환
-		return returnInt;
-	}
-
-	private static int getTemp_int(Request_Int rqi) {
-		int tempInt = 0;
-		
-		do {
-			try {
-				rqi.request();
-				tempInt = scanner.nextInt();
-				scanner.nextLine();
-			} catch (NumberFormatException ne) {
-				scanner.nextLine();
-				rqi.exceptionMessage(); // int 타입이 아닌 값을 입력했을 때의 경고 메세지
-				continue;
-			}
-			
-			break;
-			
-		} while (true);
-		return tempInt;
-	}
+public class Input {
+	
+	// <문제상황 : int값을 입력하게 하고, 그 int를 반환한다.>
+	// 1. 요구사항의 출력
+	// 2. 값을 입력받는다.
+	// 3. 값을 체크하고 각각의 경우에 해당하는 에러 메세지를 출력한다.
+	//		3-1. 입력 과정에서 InputMismatchException 인스턴스가 생성될 경우
+	//		3-2. 요구사항의 범위에서 벗어난 값을 입력할 경우
+	// 4. 에러에 해당되면 다시 1로 돌아가서 작업을 하도록 한다.
+	// 5. 정상적으로 입력됐다면 입력 값을 반환한다.
 }
